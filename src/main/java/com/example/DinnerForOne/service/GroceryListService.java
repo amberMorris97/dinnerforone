@@ -2,6 +2,7 @@ package com.example.DinnerForOne.service;
 
 import com.example.DinnerForOne.model.ExtendedIngredients;
 import com.example.DinnerForOne.model.Ingredient;
+import com.example.DinnerForOne.util.UrlValidator;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -11,8 +12,6 @@ import reactor.core.publisher.Mono;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 @Service
 public class GroceryListService {
@@ -27,18 +26,7 @@ public class GroceryListService {
     }
 
     public List<Ingredient> fetchIngredientsForRecipe(String url) {
-        if (url == null || url.isEmpty()) {
-            throw new IllegalArgumentException("URL cannot be null or empty");
-        }
-
-        String urlRegex = "^(https?|ftp)://[\\w\\d\\-.]+(:\\d+)?(/\\S*)?$";
-        Pattern pattern = Pattern.compile(urlRegex);
-        Matcher matcher = pattern.matcher(url);
-
-        if (!matcher.matches()) {
-            throw new IllegalArgumentException("Invalid URL format.");
-
-        }
+        UrlValidator.validateUrl(url);
 
         HttpHeaders headers = new HttpHeaders();
         headers.add("x-api-key", apiKey);

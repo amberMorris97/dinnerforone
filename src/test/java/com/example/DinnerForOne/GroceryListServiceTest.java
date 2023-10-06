@@ -81,17 +81,15 @@ public class GroceryListServiceTest {
             groceryListService.fetchIngredientsForRecipe("");
         });
 
-        assertEquals("URL cannot be null or empty", exception.getMessage());
+        assertEquals("URL cannot be null or empty.", exception.getMessage());
     }
 
     @Test
     void testFetchIngredientsForRecipeInvalidUrl() {
-        GroceryListService groceryListServiceWithoutStubbing = Mockito.spy(new GroceryListService());
-
-        Mockito.doCallRealMethod().when(groceryListServiceWithoutStubbing).fetchIngredientsForRecipe("invalid_url");
+        GroceryListService groceryListService = new GroceryListService();
 
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
-            groceryListServiceWithoutStubbing.fetchIngredientsForRecipe("invalid_url");
+            groceryListService.fetchIngredientsForRecipe("invalid_url");
         });
 
         assertEquals("Invalid URL format.", exception.getMessage());
