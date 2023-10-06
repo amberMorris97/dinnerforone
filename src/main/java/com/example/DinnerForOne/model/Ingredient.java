@@ -5,6 +5,7 @@ public class Ingredient {
     private String amount;
     private String unit;
     private String aisle;
+    private double originalServingSize;
 
     public String getName() {
         return name;
@@ -37,5 +38,13 @@ public class Ingredient {
 
     public void setAisle(String aisle) {
         this.aisle = aisle;
+    }
+
+    public double getOriginalServingSize() {
+        return originalServingSize;
+    }
+
+    public void setOriginalServingSize(double originalServingSize) {
+        this.originalServingSize = originalServingSize;
     }
 }

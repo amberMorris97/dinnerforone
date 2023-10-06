@@ -40,11 +40,15 @@ public class GroceryListService {
 
         ExtendedIngredients extendedIngredients = responseMono.block();
 
-        if (extendedIngredients != null && extendedIngredients.getExtendedIngredients() != null) {
+        assert extendedIngredients != null;
+        for (Ingredient ingredient: extendedIngredients.getExtendedIngredients()) {
+            ingredient.setOriginalServingSize(extendedIngredients.getServings());
+        }
+
+        if (extendedIngredients.getExtendedIngredients() != null) {
             return extendedIngredients.getExtendedIngredients();
         } else {
             return Collections.emptyList();
         }
     }
-
 }

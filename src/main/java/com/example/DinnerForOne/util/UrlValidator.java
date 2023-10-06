@@ -1,8 +1,11 @@
 package com.example.DinnerForOne.util;
 
+import org.springframework.stereotype.Component;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+@Component
 public class UrlValidator {
 
     public static void validateUrl(String url) {

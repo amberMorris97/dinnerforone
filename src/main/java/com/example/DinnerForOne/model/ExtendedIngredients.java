@@ -3,7 +3,7 @@ package com.example.DinnerForOne.model;
 import java.util.List;
 
 public class ExtendedIngredients {
-    private int servings;
+    private double servings;
     private List<Ingredient> extendedIngredients;
 
     public List<Ingredient> getExtendedIngredients() {
@@ -13,10 +13,10 @@ public class ExtendedIngredients {
     public void setExtendedIngredients(List<Ingredient> extendedIngredients) {
         this.extendedIngredients = extendedIngredients;
     }
-    public int getServings() {
+    public double getServings() {
         return servings;
     }
-    public void setServings(int servings) {
+    public void setServings(double servings) {
         this.servings = servings;
     }
 }

@@ -31,7 +31,7 @@ public class GroceryListControllerTest {
     void setUp() {
         MockitoAnnotations.openMocks(this);
         urlValidator = new UrlValidator();
-        groceryListController = new GroceryListController(groceryListService, urlValidator);
+        groceryListController = new GroceryListController(groceryListService, null, urlValidator);
     }
 
     @Test
