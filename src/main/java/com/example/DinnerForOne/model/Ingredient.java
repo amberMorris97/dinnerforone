@@ -4,6 +4,7 @@ public class Ingredient {
     private String name;
     private String amount;
     private String unit;
+    private String aisle;
 
     public String getName() {
         return name;
@@ -28,5 +29,13 @@ public class Ingredient {
 
     public void setUnit(String unit) {
         this.unit = unit;
+    }
+
+    public String getAisle() {
+        return aisle;
+    }
+
+    public void setAisle(String aisle) {
+        this.aisle = aisle;
     }
 }

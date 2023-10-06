@@ -20,12 +20,12 @@ public class GroceryListController {
         this.groceryListService = groceryListService;
     }
 
-    @GetMapping("/grocery-list")
+    @GetMapping("/fetch-ingredients")
     @ResponseBody
-    public ResponseEntity<?> getGroceryList(@RequestParam String url) {
+    public ResponseEntity<?> fetchIngredientsForRecipe(@RequestParam String url) {
         try {
-            List<Ingredient> groceryList = groceryListService.fetchIngredientsForRecipe(url);
-            return ResponseEntity.ok(groceryList);
+            List<Ingredient> ingredientsForRecipe = groceryListService.fetchIngredientsForRecipe(url);
+            return ResponseEntity.ok(ingredientsForRecipe);
         } catch (Exception e) {
             return null;
         }
